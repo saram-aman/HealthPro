@@ -1,0 +1,110 @@
+Streak Health Pro — Application Documentation
+
+-------------------------------------------------
+TECH STACK
+-------------------------------------------------
+Frontend: Pure HTML5, CSS3, JavaScript (Vanilla)
+Architecture: Single Page Application (SPA)
+Data Storage: LocalStorage (browser-based persistence)
+APIs Used: Notification API, File API, Date API
+Design: Glassmorphism + Gradient UI
+Responsive: Yes (CSS Grid + Flexbox)
+
+-------------------------------------------------
+CORE FEATURES
+-------------------------------------------------
+1. Streak Management
+   - Track current and longest streaks automatically.
+   - Mark or unmark any past day by clicking on the calendar.
+   - Shift + Click to select and mark a date range.
+   - Fast-start streak setup for pre-existing streaks.
+   - Undo, reset, and progress tracking.
+
+2. Reminders & Notifications
+   - Daily browser notifications via Notification API.
+   - Custom reminder time configuration.
+   - Optional email placeholder for backend/email integration.
+   - Test reminder button for instant check.
+
+3. Data Storage & Portability
+   - LocalStorage persistence.
+   - JSON Export/Import functionality.
+   - Full data restoration from imported files.
+
+4. Analytics & Visualization
+   - Current streak, longest streak, total check-ins, and weekly average.
+   - Gradient-based progress bar animation.
+   - 90-day interactive calendar grid.
+   - Timeline of check-ins with date and health notes.
+
+5. User Interface
+   - Dark/Light theme toggle.
+   - Confetti animation after successful check-ins.
+   - Responsive and mobile-friendly.
+   - Smooth hover and transition effects.
+   - Gradient visual states: completed, range-selected, default.
+
+-------------------------------------------------
+UI / DESIGN OVERVIEW
+-------------------------------------------------
+Style: Modern Glassmorphism + Gradient Aesthetic
+Colors:
+   - Background: Deep navy gradient (#030612 → #071226)
+   - Accents: Mint (#6EE7B7), Blue (#60A5FA), Violet (#8B5CF6)
+Typography:
+   - Titles: Poppins (Bold)
+   - Body: Inter (Clean)
+Layout:
+   1. Sidebar (Left Panel)
+      - Branding and logo
+      - Streak stats and actions
+      - Reminder and settings panel
+      - Quick tools (fast-start, range, reset)
+   2. Main Area (Right Panel)
+      - Search and notification controls
+      - 90-day calendar
+      - Timeline of recent check-ins
+Animations:
+   - Hover lift (translateY(-6px))
+   - Gradient bar transitions
+   - Confetti bursts (CSS keyframes + JS)
+
+-------------------------------------------------
+SECURITY & STORAGE
+-------------------------------------------------
+- Data stored locally in browser (no external servers).
+- JSON exports are fully user-controlled.
+- Notifications depend on browser permission.
+- Optional email stored locally (for future integration).
+
+-------------------------------------------------
+FUTURE ENHANCEMENTS
+-------------------------------------------------
+1. Add Service Worker + Firebase for push notifications.
+2. Backend integration for email reminders.
+3. Health metrics dashboard (sleep, steps, water graphs).
+4. Authentication and multi-device cloud sync.
+5. Gamification (badges, milestones, achievements).
+
+-------------------------------------------------
+FILE STRUCTURE
+-------------------------------------------------
+StreakHealthPro/
+├── index.html       (Main structure)
+├── style/style.css       (UI design and layout)
+└── script/script.js           (Logic and interactions)
+
+-------------------------------------------------
+SUMMARY
+-------------------------------------------------
+Streak Health Pro is a standalone daily streak tracker app built with pure web technologies.
+It combines productivity features with an engaging and premium visual experience.
+
+Key Benefits:
+- Lightweight and offline-capable.
+- No dependencies or frameworks.
+- Visually appealing and responsive.
+- Extensible architecture for backend or cloud features.
+
+-------------------------------------------------
+END OF DOCUMENT

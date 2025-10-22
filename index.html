@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streak Health Pro: The 90-Day Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <div id="app-container">
+        <div id="sidebar">
+            <div class="logo">
+                <h2><i class="fas fa-heartbeat"></i> Health Pro</h2>
+                <p class="challenge-goal">90-Day Challenge</p>
+            </div>
+            <div class="glass-card">
+                <h3>Challenge Name</h3>
+                <div class="input-group">
+                    <input type="text" id="challenge-name" placeholder="E.g., The 90-Day Fitness Blitz" maxlength="50">
+                </div>
+            </div>
+            <div class="glass-card">
+                <h3>Current Progress</h3>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div id="current-streak-val" class="stat-value">0</div>
+                        <div class="stat-label">Current Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="longest-streak-val" class="stat-value">0</div>
+                        <div class="stat-label">Longest Streak</div>
+                    </div>
+                </div>
+                <div class="stat-grid" style="margin-top: 10px;">
+                    <div class="stat-item">
+                        <div id="total-checkins-val" class="stat-value">0</div>
+                        <div class="stat-label">Total Check-ins</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="weekly-avg-val" class="stat-value">0.0</div>
+                        <div class="stat-label">Weekly Avg.</div>
+                    </div>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+            <div class="glass-card" id="badges-section">
+                <h3>Milestones</h3>
+                <div id="badge-list">
+                </div>
+            </div>
+            <div class="glass-card">
+                <h3>Tools</h3>
+                <button class="btn btn-secondary" style="margin-bottom: 10px;" onclick="App.requestNotificationPermission()">
+                    <i class="fas fa-bell"></i> Request Notifications
+                </button>
+                <div class="controls-grid">
+                    <button class="btn btn-tool" onclick="App.exportData()">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                    <input type="file" id="import-file" style="display: none;" accept="application/json" onchange="App.importData(event)">
+                    <button class="btn btn-tool" onclick="document.getElementById('import-file').click()">
+                        <i class="fas fa-file-import"></i> Import
+                    </button>
+                    <button class="btn btn-tool" onclick="App.promptFastStart()">
+                        <i class="fas fa-forward"></i> Fast-Start
+                    </button>
+                    <button class="btn btn-danger" onclick="App.resetDataConfirmation()">
+                        <i class="fas fa-undo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="main-content">
+            <div class="glass-card" id="calendar-section">
+                <div class="calendar-header">
+                    <button class="btn btn-secondary" style="padding: 8px 12px;" onclick="App.changeCalendarView(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="current-month-year"></h3>
+                    <button class="btn btn-secondary" style="padding: 8px 12px;" onclick="App.changeCalendarView(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="weekdays">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <div id="calendar-grid">
+                </div>
+            </div>
+
+            <div class="glass-card" id="timeline-section">
+                <h3 style="color: var(--color-accent-blue);">Recent Check-ins & Notes</h3>
+                <div id="timeline-list">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="theme-toggle" onclick="App.toggleTheme()">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </div
+    <div id="confetti-container"></div>
+    <div id="modal-backdrop"></div>
+    <div id="message-box" class="glass-card">
+        <p id="message-text"></p>
+        <div id="message-actions"></div>
+    </div>
+    <div id="metric-modal" class="glass-card modal">
+        <h3>Log Your Day</h3>
+        <p id="metric-modal-date" style="color: var(--color-accent-mint);"></p>
+        <p style="margin-bottom: 10px;">How would you rate your day (1-5)?</p>
+        <div id="mood-selector" class="mood-selector">
+            <span data-mood="1" title="Very Poor">😩</span>
+            <span data-mood="2" title="Poor">😕</span>
+            <span data-mood="3" title="Neutral">😐</span>
+            <span data-mood="4" title="Good">😊</span>
+            <span data-mood="5" title="Excellent">😁</span>
+        </div>
+
+        <div class="input-group" style="margin-top: 15px;">
+            <label for="metric-note">Optional Note</label>
+            <textarea id="metric-note" rows="3" placeholder="I hit the gym and felt amazing!"></textarea>
+        </div>
+
+        <button class="btn" onclick="App.confirmMetricLog()" style="width: 100%; margin-top: 15px;">Confirm Check-in</button>
+        <button class="btn btn-secondary" onclick="App.cancelMetricLog()" style="width: 100%; margin-top: 10px;">Cancel</button>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+</html>
