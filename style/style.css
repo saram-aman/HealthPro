@@ -18,7 +18,7 @@
 
 * {
     box-sizing: border-box;
-    transition: background-color 0.3s ease, border 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
+    transition: all 0.3s ease-out;
 }
 
 body {
@@ -126,6 +126,7 @@ h3 { font-size: 1.2rem; color: var(--color-accent-blue); }
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
+    justify-content: center;
 }
 
 .badge-item {
@@ -274,6 +275,8 @@ h3 { font-size: 1.2rem; color: var(--color-accent-blue); }
     position: relative;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .day-cell:hover:not(.current-day):not(.inactive) {
@@ -387,6 +390,13 @@ h3 { font-size: 1.2rem; color: var(--color-accent-blue); }
     display: none;
 }
 
+@media (max-width: 450px) {
+    .modal {
+        width: 95%;
+        margin: 10px;
+    }
+}
+
 #message-box {
     position: fixed;
     bottom: 20px;
@@ -471,6 +481,10 @@ h3 { font-size: 1.2rem; color: var(--color-accent-blue); }
 }
 
 @media (max-width: 900px) {
+    body {
+        font-size: 13px;
+    }
+
     #app-container {
         grid-template-columns: 1fr;
         width: 100%;
@@ -479,24 +493,67 @@ h3 { font-size: 1.2rem; color: var(--color-accent-blue); }
         border-radius: 0;
     }
 
-    #sidebar {
-        padding: 65px 15px 15px 15px;
-        order: 2;
-        border-right: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     #main-content {
         padding: 15px;
         order: 1;
     }
 
+    #sidebar {
+        padding: 15px;
+        order: 2;
+        border-right: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
     .stat-grid {
         grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .stat-value {
+        font-size: 1.4rem;
     }
 
     .controls-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .btn-tool {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+
+    #calendar-section {
+        padding: 15px;
+    }
+
+    .weekdays {
+        font-size: 0.75rem;
+    }
+
+    #calendar-grid {
+        gap: 3px;
+    }
+
+    .day-cell {
+        font-size: 0.8rem;
+        min-height: 40px;
+        border-radius: 8px;
+    }
+
+    .day-cell .mood-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .calendar-header h3 {
+        font-size: 1rem;
     }
 
     #theme-toggle {
@@ -504,13 +561,6 @@ h3 { font-size: 1.2rem; color: var(--color-accent-blue); }
         right: 15px;
     }
 
-    #calendar-grid {
-        gap: 4px;
-    }
-
-    .day-cell {
-        font-size: 0.9rem;
-    }
 
     #message-box {
         bottom: 10px;
