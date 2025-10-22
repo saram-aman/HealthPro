@@ -600,6 +600,7 @@ h3 { font-size: 1.2rem; color: var(--color-accent-blue); }
         order: 1;
         overflow-y: initial;
         width: 100%;
+        margin-top: 60px;
     }
 
     #sidebar {
